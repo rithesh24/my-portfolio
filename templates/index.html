@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rithesh | Portfolio</title>
+  <!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #000000, #0d1b2a);
+      color: white;
+      overflow-x: hidden;
+    }
+   
+
+
+
+    section {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
+    #intro {
+      background-image: url('/static/jacob-miller-ot5kWZkH97s-unsplash.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      text-align: center;
+    }
+
+    #intro h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    #intro p {
+      font-size: 1.5rem;
+      color: #bfc0c0;
+      margin-bottom: 2rem;
+    }
+
+    #intro a {
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      background-color: #1e90ff;
+      color: white;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    #intro a:hover {
+      background-color: #3fa7ff;
+    }
+
+    #middle {
+      background-color: #0f2a40;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #middle h2 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      border-bottom: 3px solid #3fa7ff;
+      padding-bottom: 0.5rem;
+    }
+
+    #middle p {
+      font-size: 1.3rem;
+      line-height: 1.6; /* Reduced line spacing */
+      color: #ffffffff;
+      max-width: 900px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    /* VIDEO GALLERY */
+   
+  
+ 
+    #video-gallery {
+      z-index: 1;
+      position: relative;
+      perspective: 2000px;
+      overflow: hidden;
+      position: relative;
+      background-color: #081018; /* Your dark blue */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 0;          /* Add spacing above/below the video */
+      height: auto;             /* Let height adapt */
+      min-height: 550px; 
+      
+    }
+    
+
+
+    .cylinder {
+     position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+    }
+    
+
+
+    .video-card {
+      position: absolute;
+      width: 270px;
+      height: 480px;
+      background: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      transform-origin: center center;
+      cursor: pointer;
+    }
+
+    .video-card video {
+      position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  cursor: pointer;
+  z-index: 20;
+  pointer-events: auto;
+    }
+    .video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  background-color: black;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+    #contact {
+      background-color: #0d1b2a;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #contact p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #bcbcbc;
+    }
+
+    #contact a {
+      color: #1e90ff;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+    .skill-tag {
+      background-color: #1e90ff;
+      color: white;
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      background-color: #3fa7ff;
+      transform: scale(1.05);
+    }
+    .tools-wrapper {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 900px;
+      margin: 2rem auto 0 auto;
+    }
+
+    .tool-badge {
+      background-color: #1e90ff;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: background 0.3s ease;
+    }
+
+
+    .tool-badge:hover {
+      background-color: #3fa7ff;
+    }
+    #about-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .about-box {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 2rem;
+      border-radius: 1rem;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      width: 90%;       /* Responsive on smaller screens */
+      color: white;
+      
+    }
+
+   #about-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: blur(2px);
+  opacity: 0.7; /* adjust transparency as needed */
+  pointer-events: none; /* allows clicking through the video */
+}
+
+    .about-box {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 1rem;
+      z-index: 2;
+      text-align: center;
+      max-width: 600px;
+    }
+    .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* space between cards */
+    margin: 40px 0;
+    flex-wrap: wrap; /* Optional: to make responsive */
+  }
+
+  .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+  }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid #0af;
+    border-radius: 16px;
+    padding: 20px;
+    color: white;
+    background-color: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+  .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+    .card-title {
+      margin-top: 20px;       /* Uniform spacing from the top */
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      color: orange;
+      min-height: 60px;
+      margin-bottom: 1rem;
+      min-height: 60px;        /* 👈 forces all headings to occupy same height */
+  display: flex;
+  align-items: center;     /* vertical centering in heading block */
+  justify-content: center;
+}
+
+
+
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffffff;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .floating-shape {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #00f, #0ff);
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+  animation: floatAcross 60s linear infinite;
+}
+
+/* Optional: Change shape color with nth-child variations */
+.floating-shape:nth-child(3n) {
+  background: linear-gradient(135deg, #0f0, #0ff);
+}
+.floating-shape:nth-child(4n) {
+  background: linear-gradient(135deg, #f0f, #0ff);
+}
+
+@keyframes floatAcross {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(200vw, -100vh);
+    opacity: 0.3;
+  }
+}
+
+/* Glow Sphere – you can keep this */
+.glow-sphere {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(0, 183, 255, 0.6), transparent 60%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  filter: blur(10px);
+  opacity: 0.7;
+}
+
+/* Additional shapes (cube, sphere, pyramid) */
+.shape {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  opacity: 0.3;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #00f7ff, #8f00ff);
+  animation: float 20s infinite ease-in-out;
+  filter: blur(2px);
+}
+
+.shape.cube {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+  transform: rotateY(45deg);
+}
+.shape.sphere {
+  top: 50%;
+  left: 70%;
+  border-radius: 50%;
+  animation-delay: 5s;
+}
+.shape.pyramid {
+  top: 75%;
+  left: 30%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+}
+
+     
+
+    
+  
+    @keyframes waveMotion {
+     0% {
+        transform: translateX(0%) translateY(0%);
+      }
+      50% {
+        transform: translateX(-25%) translateY(-10%);
+      }
+      100% {
+        transform: translateX(0%) translateY(0%);
+      }
+    }
+    .contact-section {
+      background: transparent !important;
+      padding: 40px 0; /* you can reduce if needed */
+      margin: 0;
+      position: relative;
+      overflow: hidden;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  
+      position: relative;
+      z-index: 1;
+      
+      padding: 40px 0;
+    }
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.contact-container:hover {
+  transform: scale(1.01);
+}
+body {
+  margin: 0;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+
+.contact-item {
+  font-size: 1.1rem;
+  color: #e0e0ff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-item a {
+  color: #8f00ff;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.contact-item a:hover {
+  color: #00f7ff;
+  text-decoration: underline;
+}
+
+.contact-section h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+/* Contact Section Setup */
+
+
+/* Gradient Animation Layer */
+
+/* Keyframe for color animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Content Above the Background */
+.contact-content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+  width: 40%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Styling the Inner Container */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  width: 90%;
+  background: rgba(10, 10, 20, 0.85); /* solid dark base to block gradient */
+  color: #e0e0ff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px); /* optional */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.contact-container:hover {
+  transform: scale(1.01);
+}
+
+/* Contact Items */
+.contact-item {
+  font-size: 1.1rem;
+  color: #e0e0ff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-item a {
+  color: #8f00ff;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.contact-item a:hover {
+  color: #00f7ff;
+  text-decoration: underline;
+}
+
+/* Section Title */
+.contact-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<svg style="display: none;">
+  <filter id="turbulence">
+    <feTurbulence type="turbulence" baseFrequency="0.01 0.02" numOctaves="3" result="turbulence"/>
+    <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="20" xChannelSelector="R" yChannelSelector="G"/>
+    <animate xlink:href="#turbulence" attributeName="baseFrequency" dur="20s" values="0.02 0.03;0.01 0.02;0.02 0.03" repeatCount="indefinite" />
+  </filter>
+</svg>
+
+<body>
+  <!-- INTRO -->
+  <section id="intro">
+    <div>
+      <h1>Hi, I'm Rithesh</h1>
+      <p>I turn vision into motion.</p>
+      <a href="#video-gallery">View Work</a>
+
+    </div>
+  </section>
+
+  <!-- MID SECTION -->
+ 
+  <section id="middle" style="position: relative;  padding: 6rem 2rem; color: #ffffff; overflow: hidden;">
+  
+    <div style="max-width: 900px; margin: auto; text-align: center;">
+      <video autoplay muted loop id="about-video-bg">
+        <source src="{{ url_for('static', filename='loop.mp4') }}" type="video/mp4">
+      </video>
+
+     
+      <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 2rem; border-bottom: 2px solid #1e90ff; display: inline-block; padding-bottom: 0.4rem;" data-aos="fade-up">
+      About Me
+      </h2>
+
+    <!-- Wrapper Box -->
+     
+    <div style="background-color: rgba(16, 46, 72, 0.85); backdrop-filter: blur(10px); padding: 20px; border-radius: 15px;">
+      
+  
+
+      <!-- Description Paragraphs -->
+        <div style="font-size: 1.15rem; line-height: 1.9; font-weight: 300; color: #ffffff; text-align: left;">
+          
+
+          <p style="margin-bottom: 1.5rem; padding: 1rem; border-radius: 10px; transition: background 0.3s ease;" 
+          data-aos="fade-up" 
+          onmouseover="this.style.background='#173a57';" 
+          onmouseout="this.style.background='transparent';">
+          I'm Rithesh, a video editor with a focus on clean transitions, motion graphics, and detail-driven storytelling. I enjoy creating content that feels sharp, immersive, and visually polished.
+          </p>
+
+          <p style="margin-bottom: 1.5rem; padding: 1rem; border-radius: 10px; transition: background 0.3s ease;" 
+          data-aos="fade-up" data-aos-delay="100"
+          onmouseover="this.style.background='#173a57';" 
+          onmouseout="this.style.background='transparent';">
+          Most of my work is done in After Effects, Premiere Pro, and Photoshop. I also use Illustrator when needed and have started learning Blender and Unreal Engine to explore 3D environments and cinematic visuals.
+          </p>
+
+          <p style="margin-bottom: 2rem; padding: 1rem; border-radius: 10px; transition: background 0.3s ease;" 
+          data-aos="fade-up" data-aos-delay="200"
+          onmouseover="this.style.background='#173a57';" 
+          onmouseout="this.style.background='transparent';">
+          I'm currently in my final year of engineering, blending my technical background with creative work to build edits that stand out — whether it's a high-energy reel or a subtle motion piece.
+          </p>
+
+        <!-- Skill Tags -->
+          <div class="tools-wrapper" style="margin-top: 2rem;">
+            <span class="tool-badge">After Effects</span>
+            <span class="tool-badge">Premiere Pro</span>
+            <span class="tool-badge">Photoshop</span>
+            <span class="tool-badge">Illustrator</span>
+            <span class="tool-badge">Blender</span>
+            <span class="tool-badge">Unreal Engine</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>   
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- EXPERIENCE SECTION -->
+<section id="experience" style="position: relative; background-color: #081828; padding: 6rem 2rem; color: #ffffff;">
+  <!-- BACKGROUND SHAPES -->
+   
+   
+  <div class="floating-shapes">
+    <!-- Shapes will go here -->
+    <div class="shape cube"></div>
+    <div class="shape sphere"></div>
+    <div class="shape pyramid"></div>
+    <div class="shape cube" style="top: 20%; left: 60%; animation-delay: 2s;"></div>
+    <div class="shape sphere" style="top: 40%; left: 25%; animation-delay: 7s;"></div>
+    <div class="shape pyramid" style="top: 65%; left: 80%; animation-delay: 12s;"></div>
+    <div class="shape cube" style="top: 30%; left: 10%; animation-delay: 4s;"></div>
+    <div class="shape sphere" style="top: 85%; left: 50%; animation-delay: 9s;"></div>
+  </div>
+  <div style="max-width: 1100px; margin: auto; position: relative; z-index: 1; text-align: center;">
+    <h2 style="font-size: 2.8rem; font-weight: 700; margin-bottom: 3rem; border-bottom: 2px solid #f39c12; display: inline-block; padding-bottom: 0.4rem;" data-aos="fade-up">
+      Experience
+    </h2>
+
+    <!-- Card Container -->
+    <div class="card-wrapper" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+      
+      <!-- Card 1 - MLSC -->
+      <div class="flip-container" data-aos="fade-up" data-aos-delay="0" style="width: 300px; height: 400px; perspective: 1000px;">
+        <div class="flip-card" style="width: 100%; height: 100%; position: relative;">
+          <div class="flip-card-inner" style="width: 100%; height: 100%; position: relative; transition: transform 0.8s; transform-style: preserve-3d;">
+            <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; background-color: #102e48; color: white; padding: 1.5rem; border-radius: 15px; backface-visibility: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+              <h3 style="font-size: 1.5rem; color: #f39c12; margin-bottom: 1rem;min-height: 60px;">Microsoft Learn Student Club (MLSC)</h3>
+              <p style="font-size: 0.95rem;">Microsoft Learn Student Club is a student-driven community that nurtures technical skills through workshops, seminars, and hands-on learning sessions. It focuses on real-world applications of Microsoft technologies and beyond. The club also organizes hackathons that encourage innovation, problem-solving, and collaboration among students.</p>
+            </div>
+            <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; background-color: #102e48; color: white; padding: 1.5rem; border-radius: 15px; backface-visibility: hidden; transform: rotateY(180deg); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+              <div class="card-back">
+              <h3 class="card-title">My Role at MLSC</h3>
+              <ul class="card-details">
+                <li>Created engaging posts for social media</li>
+                <li>Edited multiple reels for event highlights</li>
+                <li>Designed event posters and digital assets</li>
+                <li>Produced official aftermovies for major events</li>
+              </ul>
+            </div>
+<!-- BACK CONTENT for MLSC -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 - Avahan -->
+      <div class="flip-container" data-aos="fade-up" data-aos-delay="100" style="width: 300px; height: 400px; perspective: 1000px;">
+        <div class="flip-card" style="width: 100%; height: 100%; position: relative;">
+          <div class="flip-card-inner" style="width: 100%; height: 100%; position: relative; transition: transform 0.8s; transform-style: preserve-3d;">
+            <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; background-color: #102e48; color: white; padding: 1.5rem; border-radius: 15px; backface-visibility: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+              <h3 style="font-size: 1.5rem; color: #f39c12; margin-bottom: 1rem;">Avahan – The Sports Committee</h3>
+              <p style="font-size: 0.95rem;">Avahan is the sports committee responsible for promoting physical fitness, teamwork, and sportsmanship through various athletic events and tournaments. It organizes intra- and inter-college competitions, sports days, and fitness challenges that encourage student participation in both traditional and modern sports, fostering a healthy and competitive spirit across the campus.</p>
+            </div>
+            <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; background-color: #102e48; color: white; padding: 1.5rem; border-radius: 15px; backface-visibility: hidden; transform: rotateY(180deg); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+              <!-- BACK CONTENT for Avahan -->
+            <div class="card-back">
+              <h3 class="card-title">Design Work for Avahan</h3>
+              <ul class="card-details">
+                <li>Created Instagram posts</li>
+                <li>Designed the official teaser video</li>
+                <li>Made sponsor banners and promotional graphics</li>
+              </ul>
+            </div>
+<!-- BACK CONTENT for Avahan -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 - My Editing Journey -->
+      <div class="flip-container" data-aos="fade-up" data-aos-delay="200" style="width: 300px; height: 400px; perspective: 1000px;">
+        <div class="flip-card" style="width: 100%; height: 100%; position: relative;">
+          <div class="flip-card-inner" style="width: 100%; height: 100%; position: relative; transition: transform 0.8s; transform-style: preserve-3d;">
+            <div class="flip-card-front" style="position: absolute; width: 100%; height: 100%; background-color: #102e48; color: white; padding: 1.5rem; border-radius: 15px; backface-visibility: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+              <h3 style="font-size: 1.5rem; color: #f39c12; margin-bottom: 1rem;">My Path to Editing</h3>
+              <p style="font-size: 0.95rem;">I’ve spent the last 4 years building everything from the ground up ,no formal courses, just curiosity. I reverse-engineered edits I admired, paused frame by frame, and recreated them until I understood what made them work. Every cut, transition, and VFX pass is a result of deep dives, failed attempts, late-night breakdowns, and breakthroughs. It’s been less about following tutorials and more about dissecting the craft until it became second nature.</p>
+            </div>
+            <div class="flip-card-back" style="position: absolute; width: 100%; height: 100%; background-color: #102e48; color: white; padding: 1.5rem; border-radius: 15px; backface-visibility: hidden; transform: rotateY(180deg); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+              <!-- BACK CONTENT for Learning Card -->
+            <div class="card-back">
+              <h3 class="card-title">What i Learned</h3>
+              <ul class="card-details">
+                <li>Explored different design tools and platforms</li>
+                <li>Improved skills in Photoshop, Illustrator, and After Effects</li>
+                <li>Learned to adapt designs for different formats (posts, banners, videos)</li>
+                <li>Understood the workflow of handling real event-based content</li>
+                <li>Gained experience in meeting deadlines and design consistency</li>
+              </ul>
+            </div>
+<!-- BACK CONTENT for Editing Journey -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  
+
+
+  
+
+  <!-- VIDEO GALLERY -->
+<section id="video-gallery">
+  <div class="scroll-box">
+    <div class="cylinder" id="cylinder" data-rotation="0">
+
+      <div class="video-card" style="transform: rotateY(0deg) translateZ(500px);">
+        <img src="static/r.png" class="video-thumb" />
+        <video preload="metadata" src="static/videos/ronaldo.mp4" muted></video>
+      </div>
+      <div class="video-card" style="transform: rotateY(60deg) translateZ(500px);">
+        <img src="static/zoro.png" class="video-thumb" />
+        <video preload="metadata" src="static/videos/final zoro.mp4" muted></video>
+      </div>
+      <div class="video-card" style="transform: rotateY(120deg) translateZ(500px);">
+        <img src="static/youtube thumbnail.png" class="video-thumb" />
+        <video preload="metadata" src="static/videos/naa ready insta reel .mp4" muted></video>
+      </div>
+      <div class="video-card" style="transform: rotateY(180deg) translateZ(500px);">
+        <img src="static/thumbnail.png" class="video-thumb" />
+        <video preload="metadata" src="static/videos/final new avengers.mp4" muted></video>
+      </div>
+      <div class="video-card" style="transform: rotateY(240deg) translateZ(500px);">
+        <img src="static/v.png" class="video-thumb" />
+        <video preload="metadata" src="static/videos/virat 2.mp4" muted></video>
+      </div>
+      <div class="video-card" style="transform: rotateY(300deg) translateZ(500px);">
+        <img src="static/w.png" class="video-thumb" />
+        <video preload="metadata" src="static/videos/random final.mp4" muted></video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="bg-gradient"></div>
+
+  <div class="contact-content">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+      <div class="contact-item">
+        <strong>Email:</strong>
+        <a href="mailto:shettyrithesh839@gmail.com">shettyrithesh839@gmail.com</a>
+      </div>
+
+      <div class="contact-item">  
+        <strong>Phone:</strong>
+        <a href="tel:+919136282476">+91 9136282476</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>LinkedIn:</strong>
+        <a href="https://www.linkedin.com/in/rithesh-shetty04" target="_blank">linkedin.com/in/rithesh-shetty04</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Instagram:</strong>
+        <a href="https://www.instagram.com/rithesh_shetty_/" target="_blank">@itx_blue_flame</a>
+      </div>
+
+      <div class="contact-item">
+        <strong>Project Drive:</strong>
+        <a href="https://drive.google.com/drive/folders/1HS11-2oQvJn1ZDWP_PE21oruhBRIZppu?usp=drive_link" target="_blank">View My Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.video-card').forEach(card => {
+    const thumb = card.querySelector('.video-thumb');
+    const video = card.querySelector('video');
+
+    // Initial state: show thumbnail, hide video
+    thumb.style.display = 'block';
+    video.style.display = 'none';
+
+    // Thumbnail click: show video, hide thumbnail, play video unmuted with controls
+    thumb.addEventListener('click', e => {
+      e.stopPropagation();
+
+      // Pause all other videos and show their thumbnails
+      document.querySelectorAll('.video-card').forEach(otherCard => {
+        if (otherCard !== card) {
+          const otherThumb = otherCard.querySelector('.video-thumb');
+          const otherVideo = otherCard.querySelector('video');
+          otherVideo.pause();
+          otherVideo.style.display = 'none';
+          otherVideo.removeAttribute('controls');
+          otherThumb.style.display = 'block';
+        }
+      });
+
+      thumb.style.display = 'none';
+      video.style.display = 'block';
+      video.muted = false;
+      video.setAttribute('controls', 'true');
+
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.warn('Play prevented, muting video and retrying:', err);
+          video.muted = true;
+          video.play();
+        });
+      }
+    });
+
+    // Clicking video toggles play/pause
+    video.addEventListener('click', e => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      console.log('Video clicked, paused:', video.paused);
+
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    // Debug logs for play and pause events
+    video.addEventListener('play', () => {
+      console.log('Video playing:', video.src);
+    });
+
+    video.addEventListener('pause', () => {
+      console.log('Video paused:', video.src);
+    });
+
+    // Temporarily comment out this block to isolate toggle issue
+    /*
+    video.addEventListener('play', () => {
+      document.querySelectorAll('.video-card video').forEach(v => {
+        if (v !== video) {
+          v.pause();
+          v.style.display = 'none';
+          v.removeAttribute('controls');
+          const vThumb = v.parentElement.querySelector('.video-thumb');
+          if (vThumb) vThumb.style.display = 'block';
+        }
+      });
+    });
+    */
+
+    // When video ends: revert to thumbnail
+    video.addEventListener('ended', () => {
+      video.style.display = 'none';
+      video.removeAttribute('controls');
+      thumb.style.display = 'block';
+    });
+  });
+});
+</script>
+
+
+
+
+
+<script>
+  const videoGallery = document.getElementById("video-gallery");
+  const cylinder = document.getElementById("cylinder");
+
+  videoGallery.addEventListener("wheel", (event) => {
+    event.preventDefault(); // Prevent default scroll behavior
+    const delta = event.deltaY;
+
+    // Read current rotation
+    let currentRotation = parseFloat(cylinder.getAttribute("data-rotation")) || 0;
+
+    // Update rotation
+    currentRotation += delta * 0.2; // Adjust this value to control speed
+
+    // Apply and store rotation
+    cylinder.style.transform = `rotateY(${currentRotation}deg)`;
+    cylinder.setAttribute("data-rotation", currentRotation);
+  }, { passive: false });
+</script>
+<script>
+window.onload = function () {
+  const container = document.querySelector(".floating-shapes");
+
+  for (let i = 0; i < 20; i++) {
+    const shape = document.createElement("div");
+    shape.classList.add("floating-shape");
+
+    // Random position
+    shape.style.top = Math.random() * 100 + "%";
+    shape.style.left = Math.random() * 100 + "%";
+
+    // Random animation delay
+    shape.style.animationDelay = (Math.random() * 60) + "s";
+
+    container.appendChild(shape);
+  }
+};
+</script>
+
+
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+<svg>
+  <filter id="turbulence">
+    <feTurbulence type="turbulence" baseFrequency="0.01 0.02" numOctaves="2" result="turbulence" />
+    <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="30" />
+    <animate 
+      xlink:href="#turbulence" 
+      attributeName="baseFrequency" 
+      dur="30s" 
+      values="0.01 0.02; 0.02 0.03; 0.01 0.02" 
+      repeatCount="indefinite" />
+  </filter>
+</svg>
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
