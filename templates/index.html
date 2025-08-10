@@ -583,6 +583,26 @@ body {
   margin-bottom: 30px;
   text-align: center;
 }
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* prevents sideways scrolling */
+  }
+  
+  #intro {
+    background-attachment: scroll; /* fixes mobile background bug */
+  }
+
+  video {
+    max-width: 100%; /* makes videos fit screen */
+    height: auto;
+  }
+
+  img {
+    max-width: 100%; /* makes images fit screen */
+    height: auto;
+  }
+}
+
 
 
 
